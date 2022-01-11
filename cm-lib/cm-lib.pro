@@ -7,9 +7,11 @@ CONFIG += c++11
 
 INCLUDEPATH += source
 
-SOURCES += source/models/client.cpp
+SOURCES += source/models/client.cpp \
+    source/controllers/master_controller.cpp
 
 HEADERS += source/cm-lib_global.h \
+    source/controllers/master_controller.h \
     source/models/client.h
 
 # Default rules for deployment.
