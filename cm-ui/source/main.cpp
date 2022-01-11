@@ -10,11 +10,12 @@ int main(int argc, char *argv[])
 #endif
     QGuiApplication app(argc, argv);
     qmlRegisterType<cm::controllers::MasterController>("CM", 1, 0, "MasterController");
+    qmlRegisterType<cm::controllers::NavigationController>("CM", 1, 0, "NavigationController");
     cm::controllers::MasterController masterController;
 
     QQmlApplicationEngine engine;
     engine.rootContext()->setContextProperty("masterController",&masterController);
-    const QUrl url(QStringLiteral("qrc:/views/MasterView.qml"));
+    const QUrl url(QStringLiteral("qrc:/views/MasterView"));
     QObject::connect(&engine, &QQmlApplicationEngine::objectCreated,
                      &app, [url](QObject *obj, const QUrl &objUrl) {
         if (!obj && url == objUrl)

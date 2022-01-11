@@ -3,6 +3,7 @@
 
 #include <QObject>
 #include <cm-lib_global.h>
+#include "controllers/navigation_controller.h"
 
 namespace cm {
 namespace controllers {
@@ -10,11 +11,16 @@ namespace controllers {
 class CMLIB_EXPORT MasterController : public QObject
 {
     Q_OBJECT
-    Q_PROPERTY(QString ui_welcomeMessage MEMBER welcomeMessage CONSTANT)
+    Q_PROPERTY(QString ui_welcomeMessage READ welcomeMessage CONSTANT)
+    Q_PROPERTY(cm::controllers::NavigationController* ui_navigationController READ navigationController CONSTANT)
 public:
-    QString welcomeMessage = "This is MasterController to Major Tom";
     explicit MasterController(QObject *parent = nullptr);
-
+    ~MasterController();
+    NavigationController* navigationController();
+    const QString& welcomeMessage() const;
+private:
+    class Implementation;
+    QScopedPointer<Implementation> implementation;
 signals:
 
 };

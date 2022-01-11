@@ -15,6 +15,7 @@ SOURCES += source/models/client.cpp \
 
 HEADERS += source/cm-lib_global.h \
     source/controllers/master_controller.h \
+    source/controllers/navigation_controller.h \
     source/models/client.h
 
 DESTDIR = $$PWD/../binaries/$$DESTINATION_PATH
