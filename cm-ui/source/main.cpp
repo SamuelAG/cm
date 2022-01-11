@@ -14,6 +14,7 @@ int main(int argc, char *argv[])
     cm::controllers::MasterController masterController;
 
     QQmlApplicationEngine engine;
+    engine.addImportPath("qrc:/");
     engine.rootContext()->setContextProperty("masterController",&masterController);
     const QUrl url(QStringLiteral("qrc:/views/MasterView"));
     QObject::connect(&engine, &QQmlApplicationEngine::objectCreated,
