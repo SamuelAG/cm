@@ -15,7 +15,7 @@ explicit NavigationController(QObject* _parent = nullptr)
 {}
 signals:
     void goCreateClientView();
-    void goDashBoardView();
+    void goDashboardView();
     void goEditClientView(cm::models::Client* client);
     void goFindClientView();
 };

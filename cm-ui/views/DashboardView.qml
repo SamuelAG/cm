@@ -1,10 +1,14 @@
 import QtQuick 2.15
 
-Rectangle {
-    anchors.fill: parent
-    color: "#f4c842"
-    Text {
-        anchors.centerIn: parent
-        text: "Dashboard View"
+Item {
+    Rectangle {
+        anchors.fill: parent
+        color: "#f4c842"
+        Text {
+            anchors.centerIn: parent
+            text: "Dashboard View"
+        }
     }
+
+
 }
