@@ -11,11 +11,15 @@ include(../qmake-destination-path.pri)
 INCLUDEPATH += source
 
 SOURCES += source/models/client.cpp \
-    source/controllers/master_controller.cpp
+    source/controllers/command_controller.cpp \
+    source/controllers/master_controller.cpp \
+    source/framework/command.cpp
 
 HEADERS += source/cm-lib_global.h \
+    source/controllers/command_controller.h \
     source/controllers/master_controller.h \
     source/controllers/navigation_controller.h \
+    source/framework/command.h \
     source/models/client.h
 
 DESTDIR = $$PWD/../binaries/$$DESTINATION_PATH

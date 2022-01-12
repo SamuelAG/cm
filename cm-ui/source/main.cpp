@@ -1,6 +1,7 @@
 #include <QGuiApplication>
 #include <QQmlApplicationEngine>
 #include <controllers/master_controller.h>
+#include <controllers/command_controller.h>
 #include <QQmlContext>
 
 int main(int argc, char *argv[])
@@ -11,6 +12,8 @@ int main(int argc, char *argv[])
     QGuiApplication app(argc, argv);
     qmlRegisterType<cm::controllers::MasterController>("CM", 1, 0, "MasterController");
     qmlRegisterType<cm::controllers::NavigationController>("CM", 1, 0, "NavigationController");
+    qmlRegisterType<cm::controllers::CommandController>("CM", 1, 0, "CommandController");
+    qmlRegisterType<cm::framework::Command>("CM", 1, 0, "Command");
     cm::controllers::MasterController masterController;
 
     QQmlApplicationEngine engine;
