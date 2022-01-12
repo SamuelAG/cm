@@ -10,7 +10,7 @@ Item {
 
     signal navigationButtononClicked()
 
-    width: Style.widthNavigationButton
+    width: parent.width
     height: Style.heightNavigationButton
 
     Rectangle {
@@ -34,6 +34,8 @@ Item {
                 id: textIcon
                 width: Style.widthNavigationButtonIcon
                 height: Style.heightNavigationButtonIcon
+                verticalAlignment: Text.AlignVCenter
+                horizontalAlignment: Text.AlignHCenter
                 font {
                     family: Style.fontAwesome
                     pixelSize: 42
@@ -45,8 +47,10 @@ Item {
                 id: textDescription
                 width: Style.widthNavigationButtonDescription
                 height: Style.heightNavigationButtonDescription
+                verticalAlignment: Text.AlignVCenter
                 color: Style.colourNavigationBarFont
                 text: "SET ME!"
+                font.pixelSize: Style.pixelSizeNavigationBarText
             }
         }
 
