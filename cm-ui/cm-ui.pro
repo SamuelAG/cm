@@ -15,7 +15,8 @@ INCLUDEPATH += source \
     ../cm-lib/source
 SOURCES += source/main.cpp
 RESOURCES += views.qrc \
-    assets.qrc
+    assets.qrc \
+    components.qrc
 LIBS += -L$$PWD/../binaries/$$DESTINATION_PATH -lcm-lib
 # Additional import path used to resolve QML modules in Qt Creator's code
 model
