@@ -6,6 +6,7 @@
 #include <QObject>
 #include <cm-lib_global.h>
 #include <QJsonObject>
+#include <data/entity_collection.h>
 
 namespace cm {
 namespace data {
@@ -25,9 +26,11 @@ public:
 signals:
     void childEntitiesChanged();
     void dataDecoratorsChanged();
+    void childCollectionsChanged(const QString& collectionKey);
 protected:
     Entity* addChild(Entity* entity, const QString& key);
     DataDecorator* addDataItem(DataDecorator* dataDecorator);
+    EntityCollectionBase* addChildCollection(EntityCollectionBase* entityCollection);
     class Implementation;
     QScopedPointer<Implementation> implementation;
 };

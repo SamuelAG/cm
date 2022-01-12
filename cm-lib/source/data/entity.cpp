@@ -12,6 +12,7 @@ public:
     QString key;
     std::map<QString, Entity*> childEntities;
     std::map<QString, DataDecorator*> dataDecorators;
+    std::map<QString, EntityCollectionBase*> childCollections;
 };
 
 Entity::Entity(QObject *parent, const QString &key) : QObject(parent)
@@ -43,6 +44,10 @@ void Entity::update(const QJsonObject &jsonObject)
     for (std::pair<QString, Entity*> childEntityPair : implementation->childEntities) {
         childEntityPair.second->update(jsonObject.value(childEntityPair.first).toObject());
     }
+    // Update child collections
+    for (std::pair<QString, EntityCollectionBase*> childCollectionPair : implementation->childCollections) {
+        childCollectionPair.second->update(jsonObject.value(childCollectionPair.first).toArray());
+    }
 }
 
 QJsonObject Entity::toJson() const
@@ -57,6 +62,14 @@ QJsonObject Entity::toJson() const
     for (std::pair<QString, Entity*> childEntityPair : implementation->childEntities) {
         returnValue.insert( childEntityPair.first,
         childEntityPair.second->toJson() );
+    }
+    // Add child collections
+    for (std::pair<QString, EntityCollectionBase*> childCollectionPair : implementation->childCollections) {
+        QJsonArray entityArray;
+        for (Entity* entity : childCollectionPair.second->baseEntities()) {
+            entityArray.append( entity->toJson() );
+        }
+        returnValue.insert( childCollectionPair.first, entityArray );
     }
     return returnValue;
 }
@@ -79,6 +92,16 @@ DataDecorator *Entity::addDataItem(DataDecorator *dataDecorator)
         emit dataDecoratorsChanged();
     }
     return dataDecorator;
+}
+
+EntityCollectionBase* Entity::addChildCollection(EntityCollectionBase* entityCollection)
+{
+    if(implementation->childCollections.find(entityCollection->getKey()) == std::end(implementation->childCollections)) {
+        implementation->childCollections[entityCollection->getKey()] =
+        entityCollection;
+        emit childCollectionsChanged(entityCollection->getKey());
+    }
+    return entityCollection;
 }
 
 }

@@ -19,7 +19,10 @@ SOURCES += source/models/client.cpp \
     source/data/enumerator_decorator.cpp \
     source/data/int_decorator.cpp \
     source/data/string_decorator.cpp \
-    source/framework/command.cpp
+    source/framework/command.cpp \
+    source/models/address.cpp \
+    source/models/appointment.cpp \
+    source/models/contact.cpp
 
 HEADERS += source/cm-lib_global.h \
     source/controllers/command_controller.h \
@@ -28,11 +31,15 @@ HEADERS += source/cm-lib_global.h \
     source/data/data_decorator.h \
     source/data/datetime_decorator.h \
     source/data/entity.h \
+    source/data/entity_collection.h \
     source/data/enumerator_decorator.h \
     source/data/int_decorator.h \
     source/data/string_decorator.h \
     source/framework/command.h \
-    source/models/client.h
+    source/models/address.h \
+    source/models/appointment.h \
+    source/models/client.h \
+    source/models/contact.h
 
 DESTDIR = $$PWD/../binaries/$$DESTINATION_PATH
 OBJECTS_DIR = $$PWD/build/$$DESTINATION_PATH/.obj
