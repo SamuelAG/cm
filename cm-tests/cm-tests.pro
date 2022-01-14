@@ -16,7 +16,24 @@ MOC_DIR = $$PWD/build/$$DESTINATION_PATH/.moc
 RCC_DIR = $$PWD/build/$$DESTINATION_PATH/.qrc
 UI_DIR = $$PWD/build/$$DESTINATION_PATH/.ui
 
-INCLUDEPATH = source
+INCLUDEPATH += source \
+    ../cm-lib/source
 
-SOURCES +=  source/models/tst_clienttests.cpp
+SOURCES +=  source/models/tst_clienttests.cpp \
+    source/controllers/master_controller_tests.cpp \
+    source/data/datetime_decorator_tests.cpp \
+    source/data/enumerator_decorator_tests.cpp \
+    source/data/int_decorator_tests.cpp \
+    source/data/string_decorator_tests.cpp \
+    source/main.cpp \
+    source/test_suite.cpp
 
+HEADERS += \
+    source/controllers/master_controller_tests.h \
+    source/data/datetime_decorator_tests.h \
+    source/data/enumerator_decorator_tests.h \
+    source/data/int_decorator_tests.h \
+    source/data/string_decorator_tests.h \
+    source/test_suite.h
+
+LIBS += -L$$PWD/../binaries/$$DESTINATION_PATH -lcm-lib
