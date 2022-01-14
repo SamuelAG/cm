@@ -19,13 +19,14 @@ UI_DIR = $$PWD/build/$$DESTINATION_PATH/.ui
 INCLUDEPATH += source \
     ../cm-lib/source
 
-SOURCES +=  source/models/tst_clienttests.cpp \
+SOURCES +=  \
     source/controllers/master_controller_tests.cpp \
     source/data/datetime_decorator_tests.cpp \
     source/data/enumerator_decorator_tests.cpp \
     source/data/int_decorator_tests.cpp \
     source/data/string_decorator_tests.cpp \
     source/main.cpp \
+    source/models/client_tests.cpp \
     source/test_suite.cpp
 
 HEADERS += \
@@ -34,6 +35,7 @@ HEADERS += \
     source/data/enumerator_decorator_tests.h \
     source/data/int_decorator_tests.h \
     source/data/string_decorator_tests.h \
+    source/models/client_tests.h \
     source/test_suite.h
 
 LIBS += -L$$PWD/../binaries/$$DESTINATION_PATH -lcm-lib

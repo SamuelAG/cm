@@ -1,4 +1,4 @@
-#include "stringdecorator_tests.h"
+#include "string_decorator_tests.h"
 #include <data/entity.h>
 
 namespace cm {

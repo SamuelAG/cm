@@ -1,4 +1,4 @@
-#include "intdecorator_tests.h"
+#include "int_decorator_tests.h"
 
 #include <QSignalSpy>
 #include <data/entity.h>
