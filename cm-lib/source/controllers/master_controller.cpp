@@ -1,4 +1,5 @@
 #include "master_controller.h"
+
 namespace cm {
 namespace controllers {
 
@@ -8,10 +9,12 @@ public:
     {
         navigationController = new NavigationController(masterController);
         commandController = new CommandController(masterController);
+        newClient = new models::Client(masterController);
     }
     MasterController* masterController{nullptr};
     NavigationController* navigationController{nullptr};
     CommandController *commandController{nullptr};
+    models::Client *newClient{nullptr};
     QString welcomeMessage = "This is MasterController to Major Tom";
 };
 
@@ -34,6 +37,11 @@ NavigationController *MasterController::navigationController()
 CommandController *MasterController::commandController()
 {
     return implementation->commandController;
+}
+
+models::Client *MasterController::newClient()
+{
+    return implementation->newClient;
 }
 
 const QString &MasterController::welcomeMessage() const

@@ -31,6 +31,7 @@ protected:
     Entity* addChild(Entity* entity, const QString& key);
     DataDecorator* addDataItem(DataDecorator* dataDecorator);
     EntityCollectionBase* addChildCollection(EntityCollectionBase* entityCollection);
+private:
     class Implementation;
     QScopedPointer<Implementation> implementation;
 };
